@@ -6,9 +6,6 @@ app = Flask(__name__)
 app.debug = True
 
 api_url = "http://www.aethyrnet.com/api/lcs"
-column_names = { "summonerName" : "Summoner Name",
-                 "league" : "League",
-                 "division" : "Division" }
 
 @app.route('/')
 def show_chart():
@@ -18,6 +15,4 @@ def show_chart():
         return "Error getting data from api", 500
     
     player_infos = json.loads(result.content)
-    #Get the columns
-    #column_names = player_infos[0].keys()
     return render_template('show_chart.html', player_infos=player_infos)
