@@ -3,6 +3,9 @@
 	<head>
 		<title>LCS Korea Tracker</title>
 		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='foundation.min.css') }}">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='show_chart.css') }}">
+		<script src="{{ url_for('static', filename='jquery-2.1.1.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='jquery.tablesorter.min.js') }}"></script>
 	</head>
 	<body>
 		<div class="row">
@@ -11,13 +14,13 @@
 			</div>
 		</div>
 		<div class="row">
-			<table>
+			<table id="players-table" class="tablesorter">
 				<thead>
 					<tr>
 						<th>Real Name</th>
-						<th>Summoner Name</th>
+						<th width="175">Summoner Name</th>
 						<th>Team</th>
-						<th>Ladder Rank</th>
+						<th width="160">Ladder Rank</th>
 						<th>Wins</th>
 						<th>Losses</th>
 						<th>Win Ratio</th>
@@ -44,7 +47,7 @@
 				</tbody>
 			</table>
 		</div>
-		<script src="{{ url_for('static', filename='jquery-2.1.1.min.js') }}"></script>
 		<script src="{{ url_for('static', filename='foundation.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='show_chart.js') }}"></script>
 	</body>
 </html>
