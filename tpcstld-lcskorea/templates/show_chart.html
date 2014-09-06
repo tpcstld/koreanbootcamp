@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 	<head>
-		<title>LCS in Korea Tracker</title>
+		<title>LCS Korea Tracker</title>
 		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='foundation.min.css') }}">
 	</head>
 	<body>
@@ -16,7 +16,11 @@
 					<tr>
 						<th>Real Name</th>
 						<th>Summoner Name</th>
-						<th>League</th>
+						<th>Team</th>
+						<th>Ladder Rank</th>
+						<th>Wins</th>
+						<th>Losses</th>
+						<th>Win Ratio</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -26,7 +30,15 @@
 						<td>
 							<a target="_blank" href="{{ player_info.link }}">{{ player_info.summonerName }}</a>
 						</td>
-						<td>{{ player_info.league }} {{ player_info.division }}</td>
+						<td>{{ player_info.team }}</td>
+					{% if player_info.get( 'league', 'None' ) != 'None' %}
+						<td>{{ player_info.league }} {{ player_info.division }}: {{ player_info.lp}} LP</td>
+					{% else %}
+						<td>UNRANKED</td>
+					{% endif %}
+						<td>{{ player_info.wins }}</td>
+						<td>{{ player_info.losses }}</td>
+						<td>{{ player_info.winRatio }}%</td>
 					</tr>
 				{% endfor %}
 				</tbody>
