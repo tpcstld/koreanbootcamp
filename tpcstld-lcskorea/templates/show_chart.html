@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<title>LCS in Korea Tracker</title>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='foundation.min.css') }}">
+	</head>
+	<body>
+		<div class="row">
+			<div class="text-center">
+				<h1>LCS Players in Korea Tracker</h1>
+			</div>
+		</div>
+		<div class="row">
+			<table>
+				<thead>
+					<tr>
+						<th>Real Name</th>
+						<th>Summoner Name</th>
+						<th>League</th>
+					</tr>
+				</thead>
+				<tbody>
+				{% for player_info in player_infos %}
+					<tr>
+						<td>{{ player_info.name }}</td>
+						<td>
+							<a target="_blank" href="{{ player_info.link }}">{{ player_info.summonerName }}</a>
+						</td>
+						<td>{{ player_info.league }} {{ player_info.division }}</td>
+					</tr>
+				{% endfor %}
+				</tbody>
+			</table>
+		</div>
+		<script src="{{ url_for('static', filename='jquery-2.1.1.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='foundation.min.js') }}"></script>
+	</body>
+</html>
